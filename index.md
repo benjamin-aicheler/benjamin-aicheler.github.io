@@ -4,6 +4,4 @@ title: "Home"
 permalink: /
 ---
 
-# Hi
-
-WIP
+# work in progress
