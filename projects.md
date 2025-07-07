@@ -1,7 +1,18 @@
 ---
 layout: page
-title: "Projects"
+title: "Projects, or having fun with..."
 permalink: /projects/
 ---
 
-## Projects
+### Infrastructure
+
+* Proxmox
+* Docker
+* K3s
+
+
+### AI
+
+* Ollama
+* ComfyUI
+* Pinokio
