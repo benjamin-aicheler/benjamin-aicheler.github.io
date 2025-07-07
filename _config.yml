@@ -6,5 +6,6 @@ markdown: kramdown
 
 header_pages:
   - index.md
-  - about.md
+  - blog.md
   - projects.md
+  - about.md
