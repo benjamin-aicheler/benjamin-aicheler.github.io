@@ -1,7 +1,5 @@
 ---
-layout: page
-title: "Home"
+layout: home
+title: ""
 permalink: /
 ---
-
-# work in progress

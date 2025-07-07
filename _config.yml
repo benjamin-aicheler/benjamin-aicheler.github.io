@@ -1,11 +1,21 @@
-title: "Benjamin's homepage"
+title: "Benjamin Aicheler"
 description: ""
-author: "Benjamin Aicheler"
+author: ""
 theme: minima
 markdown: kramdown
 
 header_pages:
   - index.md
-  - blog.md
   - projects.md
   - about.md
+
+paginate: 5
+paginate_path: "/blog/page:num"
+permalink: "/:title/"
+
+url: "https://benjamin-aicheler.github.io"
+baseurl: ""
+
+minima:
+  social_links:
+    - { platform: github, user_url: "https://github.com/benjamin-aicheler" }
