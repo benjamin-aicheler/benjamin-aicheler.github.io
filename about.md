@@ -4,4 +4,4 @@ title: "About"
 permalink: /about/
 ---
 
-About
+Me, developer, enthusiast and AI addict
