@@ -4,4 +4,4 @@ title: ""
 permalink: /
 ---
 
-![](assets/banner-1557881_1280.jpg)
+![](assets/banner-1557881_1280.jpg){: height="100px"}
