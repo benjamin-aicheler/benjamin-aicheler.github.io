@@ -11,6 +11,12 @@ permalink: /projects/
 * K3s
 
 
+### Services
+* AdGuard Home
+* Pihole
+* Matrix Synapse
+
+
 ### AI
 
 * Ollama
