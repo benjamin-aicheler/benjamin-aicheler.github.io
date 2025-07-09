@@ -4,4 +4,4 @@ title: "About"
 permalink: /about/
 ---
 
-Tech enthusiast. Selfhoster. AI tinkerer. Always learning.
+Tech enthusiast. Selfhoster. AI tinkerer.
