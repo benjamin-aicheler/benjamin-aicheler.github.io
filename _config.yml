@@ -2,7 +2,7 @@ title: "Benjamin's Blog"
 description: ""
 author: "Benjamin"
 
-theme: jekyll-theme-slate
+theme: minima
 lang: en-US
 markdown: kramdown
 
