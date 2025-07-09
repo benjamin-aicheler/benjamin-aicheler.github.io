@@ -1,8 +1,9 @@
 title: "Benjamin's Blog"
 description: ""
 author: "Benjamin"
+
+theme: jekyll-theme-slate
 lang: en-US
-theme: minima
 markdown: kramdown
 
 plugins:
