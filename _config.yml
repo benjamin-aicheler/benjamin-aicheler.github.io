@@ -21,7 +21,3 @@ permalink: "/:year/:month/:day/:title/"
 
 url: "https://benjamin-aicheler.github.io"
 baseurl: ""
-
-minima:
-  social_links:
-    - { platform: github, user_url: "https://github.com/benjamin-aicheler" }
