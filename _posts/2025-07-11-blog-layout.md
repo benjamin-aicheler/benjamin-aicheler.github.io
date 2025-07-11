@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "test"
+title: "Having Gemini create a layout for this site"
 date: 2025-07-11
 ---
 
