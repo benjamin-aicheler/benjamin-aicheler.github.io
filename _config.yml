@@ -20,7 +20,7 @@ collections:
     permalink: /blog/:year/:month/:day/:title/
   projects:
     output: true
-    permalink: /projects/:title/
+    permalink: /project/:title/
 
 url: "https://benjamin-aicheler.github.io"
 baseurl: ""
