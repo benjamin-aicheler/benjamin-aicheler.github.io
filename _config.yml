@@ -14,10 +14,13 @@ header_pages:
   - projects.md
 
 show_excerpts: true
-
-paginate: 5
-paginate_path: "/blog/page:num"
-permalink: "/:year/:month/:day/:title/"
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+  projects:
+    output: true
+    permalink: /projects/:title/
 
 url: "https://benjamin-aicheler.github.io"
 baseurl: ""
