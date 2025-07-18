@@ -15,6 +15,7 @@ permalink: /projects/
 * AdGuard Home
 * Pihole
 * Matrix Synapse
+* Minecraft Bedrock
 
 
 ### AI
