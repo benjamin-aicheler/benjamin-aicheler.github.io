@@ -11,4 +11,4 @@ My workflow remains straightforward: I still write the initial drafts, capturing
 
 This is an experiment in leveraging AI as a collaborative partner to deliver better technical articles more consistently. I'm looking forward to seeing how this partnership evolves.
 
-created by Gemini
+created by Gemini :)
