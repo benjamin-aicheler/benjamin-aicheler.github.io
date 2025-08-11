@@ -2,7 +2,7 @@
 layout: post
 title: "Matrix Synapse Server is now live!"
 date: 2025-08-11
-tags: tags: [docker, homelab, self-hosting, matrix, synapse]
+tags: [docker, homelab, self-hosting, matrix, synapse]
 ---
 
 I have recently deployed a personal [Matrix Synapse](https://matrix.org/docs/projects/server/synapse) homeserver, embracing the principles of federated, end-to-end encrypted communication. This move allows for greater control and sovereignty over my personal data.
