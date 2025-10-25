@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<style>
+.hero-section {
+  padding: 50px 20px;
+  margin-bottom: 2.5rem;
+  border-radius: 8px;
+  
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+}
+
+.section {
+  padding: 2.5rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.75em; 
+}
+
+.post-list-home {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+.post-list-home li {
+  padding: 1.25rem 0;
+  margin-bottom: 0;
+
+  border-bottom: 1px solid #eee; 
+}
+
+.post-list-home li:last-child {
+  border-bottom: none;
+}
+
+.post-list-home .post-link {
+  font-size: 1.25em;
+}
+
+.all-posts-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+</style>
+
+<div class="home-layout">
+
+  <div class="hero-section" style="background-image: url('{{ '/assets/banner.png' | relative_url }}');">
+    <!-- Hero content can be added here if needed in the future -->
+  </div>
+
+  <div class="page-content">
+    {{ content }}
+
+    <div class="section">
+      <h2 class="section-title">New Posts</h2>
+      {%- if site.posts.size > 0 -%}
+        <ul class="post-list-home">
+          {%- for post in site.posts limit:3 -%}
+          <li>
+            <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <h3>
+              <a class="post-link" href="{{ post.url | relative_url }}">
+                {{ post.title | escape }}
+              </a>
+            </h3>
+            {%- if site.show_excerpts -%}
+              {{ post.excerpt }}
+            {%- endif -%}
+          </li>
+          {%- endfor -%}
+        </ul>
+        <p class="all-posts-link">
+          <a href="{{ '/blog/' | relative_url }}">All Posts &rarr;</a>
+        </p>
+      {%- endif -%}
+    </div>
+  </div>
+
+</div>
