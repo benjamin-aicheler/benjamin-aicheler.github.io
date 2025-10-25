@@ -1,0 +1,155 @@
+---
+layout: default
+---
+
+<style>
+    .hero-section {
+  padding: 50px 20px;
+  margin-bottom: 2.5rem;
+  border-radius: 8px;
+  
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+}
+
+.section {
+  padding: 2.5rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.75em; 
+}
+
+.post-list-home {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+.post-list-home li {
+  padding: 1.25rem 0;
+  margin-bottom: 0;
+
+  border-bottom: 1px solid #eee; 
+}
+
+.post-list-home li:last-child {
+  border-bottom: none;
+}
+
+.post-list-home .post-link {
+  font-size: 1.25em;
+}
+
+.all-posts-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.blog-listing {
+  padding: 2.5rem 0;
+}
+
+.blog-listing .section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.75em;
+}
+
+.blog-listing .post-list-home {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+.blog-listing .post-list-home li {
+  padding: 1.25rem 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.blog-listing .post-list-home li:last-child {
+  border-bottom: none; 
+}
+
+.blog-listing .post-meta {
+  color: #828282;
+  font-size: 0.9em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.blog-listing .post-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.25em;
+  font-weight: bold;
+  display: block;
+}
+
+.blog-listing .post-excerpt {
+  margin-top: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.post-title {
+  font-size: 2.25em; 
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+
+.post-header .post-meta {
+  font-size: 1em;
+  color: #828282;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+
+  h2, h3, h4, h5, h6 {
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 1.7em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.4em;
+  }
+}
+
+</style>
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+    </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+</article>

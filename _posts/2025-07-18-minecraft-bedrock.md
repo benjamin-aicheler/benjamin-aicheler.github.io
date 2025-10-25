@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post2
 title: "Time to kill the Ender Dragon"
 date: 2025-07-18
 ---

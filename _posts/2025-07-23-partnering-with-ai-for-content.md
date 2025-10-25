@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post2
 title: "Partnering with AI: Using Gemini to Refine Blog Content"
 date: 2025-07-23
 tags: [ai, workflow, writing, gemini]

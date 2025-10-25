@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post2
 title: "Matrix Synapse Server is now live!"
 date: 2025-08-11
 tags: [docker, homelab, self-hosting, matrix, synapse]

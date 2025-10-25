@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post2
 title: "My Homelab Evolves: Centralizing Control with Home Assistant"
 date: 2025-09-12
 tags: [k3s, kubernetes, homelab, self-hosting, home-assistant, smarthome]

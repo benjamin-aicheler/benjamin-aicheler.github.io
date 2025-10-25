@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post2
 title: "Practical AI Image Generation with SDXL on Consumer Hardware"
 date: 2025-07-19
 ---

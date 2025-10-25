@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post2
 title: "Crafting a Custom Jekyll Layout with Gemini"
 date: 2025-07-11
 tags: [jekyll, webdev, ai, gemini]
