@@ -13,9 +13,9 @@ permalink: /projects/
 
 ### Services
 * AdGuard Home
-* Pihole
 * Matrix Synapse
 * Minecraft Bedrock
+* Home-Assistant
 
 
 ### AI
