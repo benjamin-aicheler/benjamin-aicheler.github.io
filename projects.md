@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page2
 title: "Projects, or having fun with..."
 permalink: /projects/
 ---
