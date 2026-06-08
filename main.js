@@ -264,25 +264,11 @@ async function initRepositoryExplorer() {
       html_url: "https://github.com/benjamin-aicheler/vaultwarden-export-rclone"
     },
     {
-      name: "ArcaneLibs",
-      description: "C# library with my common util functions and classes",
-      language: "C#",
-      stargazers_count: 0,
-      html_url: "https://github.com/benjamin-aicheler/ArcaneLibs"
-    },
-    {
       name: "k3s",
       description: "Documenting my homelab setup and sharing it with you",
       language: "Shell",
       stargazers_count: 0,
       html_url: "https://github.com/benjamin-aicheler/k3s"
-    },
-    {
-      name: "LibMatrix",
-      description: "This is a readonly mirror!",
-      language: "C#",
-      stargazers_count: 0,
-      html_url: "https://github.com/benjamin-aicheler/LibMatrix"
     },
     {
       name: "docker",
@@ -304,9 +290,10 @@ async function initRepositoryExplorer() {
     // Sort by updated or stars
     data.sort((a, b) => b.stargazers_count - a.stargazers_count || new Date(b.updated_at) - new Date(a.updated_at));
     
-    // Map to normalized structure, filtering out the portfolio repo
+    // Map to normalized structure, filtering out forks, portfolio, and explicit third-party mirrors
+    const excludedNames = ['benjamin-aicheler.github.io', 'LibMatrix', 'ArcaneLibs'];
     repositories = data
-      .filter(repo => repo.name !== 'benjamin-aicheler.github.io')
+      .filter(repo => !repo.fork && !excludedNames.includes(repo.name))
       .map(repo => ({
         name: repo.name,
         description: repo.description || 'No description provided yet.',
