@@ -290,8 +290,8 @@ async function initRepositoryExplorer() {
     // Sort by updated or stars
     data.sort((a, b) => b.stargazers_count - a.stargazers_count || new Date(b.updated_at) - new Date(a.updated_at));
     
-    // Map to normalized structure, filtering out forks, portfolio, and explicit third-party mirrors
-    const excludedNames = ['benjamin-aicheler.github.io', 'LibMatrix', 'ArcaneLibs'];
+    // Map to normalized structure, filtering out forks and the portfolio repository itself
+    const excludedNames = ['benjamin-aicheler.github.io'];
     repositories = data
       .filter(repo => !repo.fork && !excludedNames.includes(repo.name))
       .map(repo => ({
