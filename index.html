@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benjamin Aicheler | Portfolio & Homelab Showcase</title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Benjamin Aicheler | Portfolio & Homelab Showcase">
+  <meta name="description" content="Portfolio of Benjamin Aicheler, showcase of projects including SynapseAdmin.NET and vaultwarden-export-rclone, homelab setups, and .NET/Docker open-source developments.">
+  <meta name="keywords" content="Benjamin Aicheler, SynapseAdmin.NET, vaultwarden-export-rclone, Matrix Synapse, Vaultwarden backup, rclone, Blazor, .NET 10, Homelab, k3s, Docker, DevOps, C#">
+  <meta name="author" content="Benjamin Aicheler">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://benjamin-aicheler.github.io/">
+  <meta property="og:title" content="Benjamin Aicheler | Portfolio & Homelab Showcase">
+  <meta property="og:description" content="Portfolio of Benjamin Aicheler, showcase of projects including SynapseAdmin.NET and vaultwarden-export-rclone, homelab setups, and .NET/Docker open-source developments.">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/152601828?v=4">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://benjamin-aicheler.github.io/">
+  <meta property="twitter:title" content="Benjamin Aicheler | Portfolio & Homelab Showcase">
+  <meta property="twitter:description" content="Portfolio of Benjamin Aicheler, showcase of projects including SynapseAdmin.NET and vaultwarden-export-rclone, homelab setups, and .NET/Docker open-source developments.">
+  <meta property="twitter:image" content="https://avatars.githubusercontent.com/u/152601828?v=4">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Decorative Blobs -->
+  <div class="bg-blob blob-1" aria-hidden="true"></div>
+  <div class="bg-blob blob-2" aria-hidden="true"></div>
+  <div class="bg-blob blob-3" aria-hidden="true"></div>
+
+  <!-- Header Navigation -->
+  <header id="main-header">
+    <nav class="nav-container">
+      <a href="#" class="nav-logo" id="nav-logo">
+        <span class="logo-accent">&lt;</span>BA<span class="logo-accent"> /&gt;</span>
+      </a>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#featured" class="nav-link">Featured</a></li>
+        <li><a href="#repos" class="nav-link">Projects</a></li>
+        <li><a href="#homelab" class="nav-link">Homelab</a></li>
+        <li><a href="#connect" class="nav-link">Connect</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="icon-button" aria-label="Toggle light and dark theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <button id="mobile-menu-toggle" class="icon-button" aria-label="Toggle navigation menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12" class="line-mid"></line>
+            <line x1="3" y1="6" x2="21" y2="6" class="line-top"></line>
+            <line x1="3" y1="18" x2="21" y2="18" class="line-bot"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-text-col">
+          <div class="badge-container">
+            <span class="pulse-indicator"></span>
+            <span class="badge-text">Open to collaboration</span>
+          </div>
+          <h1 class="hero-title">
+            Hi, I'm <span class="text-gradient">Benjamin Aicheler</span>
+          </h1>
+          <p class="hero-subtitle">
+            Full-Stack Developer, Systems Architect & Homelab Enthusiast.
+          </p>
+          <p class="hero-description">
+            I specialize in building modular systems, developing C# & .NET utilities, and containerizing services. Driven by automation, I craft clean code and maintain resilient self-hosted infrastructures.
+          </p>
+          
+          <div class="hero-cta-group">
+            <a href="#featured" class="btn btn-primary">
+              View Featured Projects
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#connect" class="btn btn-secondary">Get in touch</a>
+          </div>
+
+          <!-- Hero Tech Stack Showcase -->
+          <div class="tech-stack-showcase">
+            <span class="tech-label">Primary Stack:</span>
+            <div class="tech-chips">
+              <span class="tech-chip"><span class="chip-color csharp"></span>C#</span>
+              <span class="tech-chip"><span class="chip-color dotnet"></span>.NET 10</span>
+              <span class="tech-chip"><span class="chip-color blazor"></span>Blazor</span>
+              <span class="tech-chip"><span class="chip-color docker"></span>Docker</span>
+              <span class="tech-chip"><span class="chip-color kubernetes"></span>K3s / K8s</span>
+              <span class="tech-chip"><span class="chip-color shell"></span>Bash Shell</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-avatar-col">
+          <div class="avatar-frame">
+            <img src="https://avatars.githubusercontent.com/u/152601828?v=4" alt="Benjamin Aicheler Avatar" id="github-avatar" class="avatar-img" width="280" height="280">
+            <div class="avatar-glow"></div>
+          </div>
+          
+          <!-- Dynamic Stats Card -->
+          <div class="stats-card glass">
+            <div class="stat-item">
+              <span class="stat-value" id="stat-repos">7</span>
+              <span class="stat-label">Repositories</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-value" id="stat-followers">1</span>
+              <span class="stat-label">Followers</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-value">Active</span>
+              <span class="stat-label">Homelab Nodes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="featured" class="featured-section">
+      <div class="section-header">
+        <span class="section-subtitle">Showcase</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-desc">Handpicked open-source tools designed to solve real-world problems in administration, cryptography, and automation.</p>
+      </div>
+
+      <div class="featured-grid">
+        <!-- Project 1: SynapseAdmin.NET -->
+        <article class="featured-card glass" id="project-synapse">
+          <div class="featured-details">
+            <div class="project-header">
+              <div class="project-icon-wrapper csharp-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+                  <line x1="4" y1="22" x2="4" y2="15"></line>
+                </svg>
+              </div>
+              <span class="project-tag">Core Project</span>
+            </div>
+            
+            <h3 class="project-title">SynapseAdmin.NET</h3>
+            <p class="project-desc">
+              A modern, high-performance web administration interface for <strong>Matrix Synapse</strong> homeservers. Built from the ground up as a Blazor Server application running on <strong>.NET 10</strong>.
+            </p>
+            
+            <ul class="project-features">
+              <li>
+                <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>User Management:</strong> Create, inspect, deactivate, and promote server users easily.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Room Administration:</strong> Inspect rooms, view metadata, and delete or purge inactive rooms.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Blazor Server Power:</strong> Instant reactive updates, low memory footprint, and native C# server integration.</span>
+              </li>
+            </ul>
+
+            <div class="project-tech-badges">
+              <span>C#</span>
+              <span>.NET 10</span>
+              <span>Blazor Server</span>
+              <span>Matrix API</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/benjamin-aicheler/SynapseAdmin.NET" class="btn btn-small btn-primary" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                Repository
+              </a>
+              <span class="license-tag">AGPL-3.0 License</span>
+            </div>
+          </div>
+
+          <!-- High-Fidelity UI Mockup of SynapseAdmin.NET Dashboard -->
+          <div class="featured-preview">
+            <div class="dashboard-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="mockup-url">https://admin.matrix.local/dashboard</div>
+              </div>
+              
+              <div class="mockup-body">
+                <!-- Sidebar -->
+                <aside class="mockup-sidebar">
+                  <div class="sidebar-brand">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" class="brand-icon"><path d="M.667 24v-2.667h1.333V2.667H.667V0h4v2.667H3.333v18.666h1.334V24zm5.333-2.667V2.667h1.333v18.666zm5.333 0V2.667h1.334v18.666zm5.334 0V2.667h1.333v18.666zM23.333 24v-2.667h-1.333V2.667h1.333V0h-4v2.667h1.334v18.666h-1.334V24z"/></svg>
+                    <span>SynapseAdmin</span>
+                  </div>
+                  <nav class="sidebar-nav">
+                    <a href="#" class="sidebar-item active">
+                      <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+                      Dashboard
+                    </a>
+                    <a href="#" class="sidebar-item">
+                      <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                      Users
+                    </a>
+                    <a href="#" class="sidebar-item">
+                      <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                      Rooms
+                    </a>
+                    <a href="#" class="sidebar-item">
+                      <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                      Federation
+                    </a>
+                  </nav>
+                </aside>
+
+                <!-- Mockup Content -->
+                <div class="mockup-content">
+                  <div class="content-header">
+                    <h4>Overview</h4>
+                    <span class="connection-status"><span class="status-dot"></span>Connected: matrix.local</span>
+                  </div>
+
+                  <div class="mockup-stats">
+                    <div class="m-stat glass">
+                      <span class="m-val">1.2k</span>
+                      <span class="m-lbl">Users</span>
+                    </div>
+                    <div class="m-stat glass">
+                      <span class="m-val">342</span>
+                      <span class="m-lbl">Rooms</span>
+                    </div>
+                    <div class="m-stat glass">
+                      <span class="m-val">28</span>
+                      <span class="m-lbl">Servers</span>
+                    </div>
+                  </div>
+
+                  <div class="mockup-table-container glass">
+                    <table class="mockup-table">
+                      <thead>
+                        <tr>
+                          <th>User ID</th>
+                          <th>Status</th>
+                          <th>Role</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>@admin:matrix.local</td>
+                          <td><span class="tbl-badge green">Active</span></td>
+                          <td>Admin</td>
+                        </tr>
+                        <tr>
+                          <td>@alice:matrix.local</td>
+                          <td><span class="tbl-badge green">Active</span></td>
+                          <td>User</td>
+                        </tr>
+                        <tr>
+                          <td>@bob:matrix.local</td>
+                          <td><span class="tbl-badge gray">Offline</span></td>
+                          <td>User</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: vaultwarden-export-rclone -->
+        <article class="featured-card glass reverse" id="project-vaultwarden">
+          <div class="featured-details">
+            <div class="project-header">
+              <div class="project-icon-wrapper shell-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                  <polyline points="4 17 10 11 4 5"></polyline>
+                  <line x1="12" y1="19" x2="20" y2="19"></line>
+                </svg>
+              </div>
+              <span class="project-tag">Homelab & Security</span>
+            </div>
+            
+            <h3 class="project-title">vaultwarden-export-rclone</h3>
+            <p class="project-desc">
+              A robust utility designed to secure self-hosted password vaults. It automatically exports your <strong>Vaultwarden</strong> vault database and configuration, encrypts the output, and syncs it to offsite cloud storage endpoints using **rclone**.
+            </p>
+            
+            <ul class="project-features">
+              <li>
+                <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Zero-Downtime Snapshots:</strong> Safely copy the SQLite database using transactional backups to avoid corruption.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Multi-Destination Support:</strong> Syncs to Google Drive, AWS S3, OneDrive, WebDAV, or SFTP through rclone.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Automation Ready:</strong> Tailored for cron scheduling, includes retention cleanup, and emits diagnostic logs.</span>
+              </li>
+            </ul>
+
+            <div class="project-tech-badges">
+              <span>Shell</span>
+              <span>Vaultwarden</span>
+              <span>Rclone</span>
+              <span>Backup</span>
+              <span>SQLite</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/benjamin-aicheler/vaultwarden-export-rclone" class="btn btn-small btn-primary" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                Repository
+              </a>
+              <span class="license-tag">Apache-2.0 License</span>
+            </div>
+          </div>
+
+          <!-- High-Fidelity Terminal Mockup showing the run process -->
+          <div class="featured-preview">
+            <div class="terminal-mockup">
+              <div class="mockup-header">
+                <div class="mockup-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="mockup-title">bash - backup-vaultwarden.sh</div>
+                <button class="run-terminal-btn" id="run-terminal-trigger" title="Replay terminal animation">
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </button>
+              </div>
+              <div class="mockup-body terminal-body" id="terminal-content">
+                <div class="terminal-line"><span class="t-prompt">benjamin@homelab:~$</span> <span class="t-command">./backup-vaultwarden.sh</span></div>
+                <div class="terminal-line t-log">[2026-06-08 12:00:01] [INFO] Starting vaultwarden backup sequence...</div>
+                <div class="terminal-line t-log">[2026-06-08 12:00:02] [INFO] Decrypting configuration and locating database...</div>
+                <div class="terminal-line t-log">[2026-06-08 12:00:03] [INFO] Creating SQLite backup vacuum snapshot...</div>
+                <div class="terminal-line t-log">[2026-06-08 12:00:04] [INFO] Syncing database to cloud storage via rclone...</div>
+                <div class="terminal-line t-success">[2026-06-08 12:00:06] [SUCCESS] Backup upload completed. (vaultwarden_20260608.tar.gz)</div>
+                <div class="terminal-line t-log">[2026-06-08 12:00:06] [INFO] Cleaning up local temporary folder...</div>
+                <div class="terminal-line t-success">[2026-06-08 12:00:07] [SUCCESS] Backup task finished without errors.</div>
+                <div class="terminal-line"><span class="t-prompt">benjamin@homelab:~$</span> <span class="cursor-blink">█</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Project Explorer (Dynamic repository explorer) -->
+    <section id="repos" class="repos-section">
+      <div class="section-header">
+        <span class="section-subtitle">Codebase</span>
+        <h2 class="section-title">All Repositories</h2>
+        <p class="section-desc">Explore all of my public GitHub repositories. Filter them by language, search by name, or check their details.</p>
+      </div>
+
+      <div class="explorer-toolbar glass">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="repo-search" placeholder="Search repositories...">
+        </div>
+        <div class="filter-group" id="filter-group">
+          <button class="filter-btn active" data-lang="all">All</button>
+          <button class="filter-btn" data-lang="c#">C#</button>
+          <button class="filter-btn" data-lang="shell">Shell</button>
+          <button class="filter-btn" data-lang="other">Other</button>
+        </div>
+      </div>
+
+      <div class="repos-grid" id="repos-grid">
+        <!-- Skeleton loaders shown initially / when fetching -->
+        <div class="repo-card glass skeleton-card">
+          <div class="skeleton skeleton-title"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text" style="width: 70%"></div>
+          <div class="skeleton-footer">
+            <div class="skeleton skeleton-meta"></div>
+            <div class="skeleton skeleton-meta"></div>
+          </div>
+        </div>
+        <div class="repo-card glass skeleton-card">
+          <div class="skeleton skeleton-title"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text" style="width: 70%"></div>
+          <div class="skeleton-footer">
+            <div class="skeleton skeleton-meta"></div>
+            <div class="skeleton skeleton-meta"></div>
+          </div>
+        </div>
+        <div class="repo-card glass skeleton-card">
+          <div class="skeleton skeleton-title"></div>
+          <div class="skeleton skeleton-text"></div>
+          <div class="skeleton skeleton-text" style="width: 70%"></div>
+          <div class="skeleton-footer">
+            <div class="skeleton skeleton-meta"></div>
+            <div class="skeleton skeleton-meta"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Homelab Stack Section -->
+    <section id="homelab" class="homelab-section">
+      <div class="section-header">
+        <span class="section-subtitle">Infrastructure</span>
+        <h2 class="section-title">My Homelab Architecture</h2>
+        <p class="section-desc">A visual map of how I host, manage, and back up my personal services and custom utilities.</p>
+      </div>
+
+      <div class="homelab-container glass">
+        <div class="architecture-diagram">
+          <!-- Compute Layer -->
+          <div class="arch-layer">
+            <h4 class="layer-title">Compute Layer</h4>
+            <div class="nodes-row">
+              <div class="node-card glass hover-glow" data-node="k3s">
+                <div class="node-icon k3s-bg">K</div>
+                <div class="node-details">
+                  <h5>k3s Cluster</h5>
+                  <p>Lightweight Kubernetes</p>
+                </div>
+              </div>
+              <div class="node-card glass hover-glow" data-node="docker">
+                <div class="node-icon docker-bg">D</div>
+                <div class="node-details">
+                  <h5>Docker Engine</h5>
+                  <p>Container Runtimes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Connecting line visual -->
+          <div class="diagram-connector">
+            <svg viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M50 0 V20" stroke="var(--border-color)" stroke-width="2" stroke-dasharray="4"/></svg>
+          </div>
+
+          <!-- Services Layer -->
+          <div class="arch-layer">
+            <h4 class="layer-title">Active Services</h4>
+            <div class="nodes-row">
+              <div class="node-card glass hover-glow" data-node="synapse">
+                <div class="node-icon synapse-bg">S</div>
+                <div class="node-details">
+                  <h5>Matrix Synapse</h5>
+                  <p>Federated Chat Homeserver</p>
+                </div>
+              </div>
+              <div class="node-card glass hover-glow" data-node="vaultwarden">
+                <div class="node-icon vaultwarden-bg">V</div>
+                <div class="node-details">
+                  <h5>Vaultwarden</h5>
+                  <p>Bitwarden API in Rust</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Connecting line visual -->
+          <div class="diagram-connector">
+            <svg viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M50 0 V20" stroke="var(--border-color)" stroke-width="2" stroke-dasharray="4"/></svg>
+          </div>
+
+          <!-- Management & Backups Layer -->
+          <div class="arch-layer">
+            <h4 class="layer-title">Management & Secure Backups</h4>
+            <div class="nodes-row">
+              <div class="node-card glass hover-glow highlight" data-node="synapse-admin">
+                <div class="node-icon admin-bg">SA</div>
+                <div class="node-details">
+                  <h5>SynapseAdmin.NET</h5>
+                  <p>Active Blazor Admin WebApp</p>
+                </div>
+              </div>
+              <div class="node-card glass hover-glow highlight" data-node="vaultwarden-export">
+                <div class="node-icon export-bg">VE</div>
+                <div class="node-details">
+                  <h5>vaultwarden-export-rclone</h5>
+                  <p>Encrypted Cloud Sync Backup</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="architecture-info" id="arch-info-display">
+          <h4>Homelab Infrastructure</h4>
+          <p>Click on any node in the architecture diagram to inspect its description, purpose, and configurations in my homelab setup.</p>
+          <div class="info-details-box glass">
+            <span class="info-placeholder">Select a node to inspect...</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect / Contact Section -->
+    <section id="connect" class="connect-section">
+      <div class="section-header">
+        <span class="section-subtitle">Get In Touch</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-desc">Have a question about my tools, want to collaborate on C#/.NET projects, or just talk homelabs? Drop a message!</p>
+      </div>
+
+      <div class="connect-container">
+        <!-- Direct Contacts -->
+        <div class="connect-info glass">
+          <h3>Contact Channels</h3>
+          <p>Feel free to reach out via email or check my active developments on GitHub.</p>
+          
+          <div class="contact-links">
+            <a href="https://matrix.to/#/@justbe:matrix.techlife.home64.de" target="_blank" rel="noopener noreferrer" class="contact-item hover-glow">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.667 24v-2.667h1.333V2.667H.667V0h4v2.667H3.333v18.666h1.334V24zm5.333-2.667V2.667h1.333v18.666zm5.333 0V2.667h1.334v18.666zm5.334 0V2.667h1.333v18.666zM23.333 24v-2.667h-1.333V2.667h1.333V0h-4v2.667h1.334v18.666h-1.334V24z"/></svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">Matrix</span>
+                <span class="contact-value" id="matrix-value">@justbe:matrix.techlife.home64.de</span>
+                <button class="copy-email-btn" id="copy-matrix-trigger" title="Copy to clipboard" onclick="event.preventDefault();">
+                  <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span class="btn-text">Copy</span>
+                </button>
+              </div>
+            </a>
+            
+            <a href="https://github.com/benjamin-aicheler" target="_blank" rel="noopener noreferrer" class="contact-item hover-glow">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </div>
+              <div class="contact-details">
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">benjamin-aicheler</span>
+                <span class="contact-link-arrow">→</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sleek Contact Form -->
+        <form class="contact-form glass" id="contact-form" action="https://formspree.io/f/xbjnygvw" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-name">Name</label>
+              <input type="text" id="form-name" name="name" required placeholder="John Doe">
+            </div>
+            <div class="form-group">
+              <label for="form-email">Email</label>
+              <input type="email" id="form-email" name="email" required placeholder="john@example.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="form-subject">Subject</label>
+            <input type="text" id="form-subject" name="subject" required placeholder="Project Collaboration">
+          </div>
+          <div class="form-group">
+            <label for="form-message">Message</label>
+            <textarea id="form-message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+            Send Message
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Benjamin Aicheler. All rights reserved.</p>
+      <p class="footer-sub">Designed using modern semantic CSS with Native Scroll-Driven Animations.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scroll-to-top" class="scroll-to-top-btn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Script Execution -->
+  <script src="main.js"></script>
+</body>
+</html>
