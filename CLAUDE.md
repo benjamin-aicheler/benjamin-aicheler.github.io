@@ -27,3 +27,4 @@ Guidelines and commands for development on the Benjamin Aicheler Portfolio Page.
 *   **Theme Control**: Set initial theme via system preference or local storage. Toggle theme using `data-theme` attribute on the root `<html>` element.
 *   **Privacy**: Personal email address is intentionally omitted. Use the Matrix handle and link to `matrix.to` for direct chat setups.
 *   **Scroll Animations**: Use native CSS view-timelines inside `@supports ((animation-timeline: view()) and (animation-range: entry))`. Provide an `IntersectionObserver` fallback for unsupported engines (Firefox/older Safari).
+*   **Copywriting Tone (Language Style)**: Keep all site copy modest, down-to-earth, and realistic. Avoid corporate jargon, agency marketing buzzwords (e.g., "robust", "systems architect", "high-performance"), and exaggeration. Use a personal first-person perspective ("I", "my") for original projects and describe third-party tools simply as services you self-host and manage.
