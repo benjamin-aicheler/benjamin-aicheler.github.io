@@ -472,43 +472,4 @@ function initContactForm() {
       console.error('Failed to copy Matrix handle:', err);
     });
   });
-
-  // Client-side contact form interceptor for formspree
-  const form = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Sending...';
-
-    const formData = new FormData(form);
-    
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      
-      if (response.ok) {
-        submitBtn.innerHTML = 'Sent Successfully! ✅';
-        form.reset();
-        setTimeout(() => {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = `Send Message <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`;
-        }, 5000);
-      } else {
-        throw new Error('Server response failed');
-      }
-    } catch (err) {
-      submitBtn.innerHTML = 'Failed to Send ❌';
-      submitBtn.disabled = false;
-      setTimeout(() => {
-        submitBtn.innerHTML = `Send Message <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`;
-      }, 5000);
-    }
-  });
 }

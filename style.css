@@ -1332,9 +1332,8 @@ section {
 
 /* Contact/Connect Section */
 .connect-container {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .connect-info {
@@ -1343,6 +1342,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
+  max-width: 600px;
 }
 
 .connect-info h3 {
