@@ -88,10 +88,10 @@ function initTerminalSimulator() {
     { type: 'prompt', text: 'benjamin@homelab:~$ ', delay: 200 },
     { type: 'command', text: './backup-vaultwarden.sh', delay: 1000 },
     { type: 'log', text: '[2026-06-08 12:00:01] [INFO] Starting vaultwarden backup sequence...', delay: 600 },
-    { type: 'log', text: '[2026-06-08 12:00:02] [INFO] Decrypting configuration and locating database...', delay: 800 },
-    { type: 'log', text: '[2026-06-08 12:00:03] [INFO] Creating SQLite backup vacuum snapshot...', delay: 700 },
-    { type: 'log', text: '[2026-06-08 12:00:04] [INFO] Syncing database to cloud storage via rclone...', delay: 1500 },
-    { type: 'success', text: '[2026-06-08 12:00:06] [SUCCESS] Backup upload completed. (vaultwarden_20260608.tar.gz)', delay: 500 },
+    { type: 'log', text: '[2026-06-08 12:00:02] [INFO] Locating configuration and preparing export API request...', delay: 800 },
+    { type: 'log', text: '[2026-06-08 12:00:03] [INFO] Triggering Vaultwarden export API...', delay: 700 },
+    { type: 'log', text: '[2026-06-08 12:00:04] [INFO] Syncing backup files to storage endpoint via rclone...', delay: 1500 },
+    { type: 'success', text: '[2026-06-08 12:00:06] [SUCCESS] Backup upload completed. (vaultwarden_backup_20260608.json)', delay: 500 },
     { type: 'log', text: '[2026-06-08 12:00:06] [INFO] Cleaning up local temporary folder...', delay: 600 },
     { type: 'success', text: '[2026-06-08 12:00:07] [SUCCESS] Backup task finished without errors.', delay: 400 },
     { type: 'prompt-end', text: 'benjamin@homelab:~$ ', delay: 100 }
@@ -203,12 +203,12 @@ function initHomelabDiagram() {
     'synapse-admin': {
       title: 'SynapseAdmin.NET',
       sub: 'Management Tool (Featured Project)',
-      body: 'My custom Blazor Server administration tool built in .NET 10. It interfaces directly with the Synapse Admin API, allowing visual manipulation of server users, rooms, active endpoints, and server diagnostics from a single sleek GUI panel.'
+      body: 'My admin panel for Matrix Synapse, built in C# and .NET 10. It uses the Synapse Admin API to manage users, rooms, and server media through a web interface.'
     },
     'vaultwarden-export': {
       title: 'vaultwarden-export-rclone',
       sub: 'Backup Utility (Featured Project)',
-      body: 'My automated backup tool designed specifically to prevent data loss in Vaultwarden instances. It safely snapshots the local SQLite DB without pausing the server, and securely uploads compressed, encrypted blobs to cloud backends using rclone.'
+      body: 'A containerized backup tool I built for my Vaultwarden instance. It automatically exports my vault data using the built-in export features and uploads the backup files to my configured rclone destination.'
     }
   };
 

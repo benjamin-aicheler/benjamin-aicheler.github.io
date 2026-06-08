@@ -95,10 +95,10 @@
             Hi, I'm <span class="text-gradient">Benjamin</span>
           </h1>
           <p class="hero-subtitle">
-            Full-Stack Developer, Systems Architect & Homelab Enthusiast.
+            C#/.NET Developer & Self-Hosting Enthusiast.
           </p>
           <p class="hero-description">
-            I specialize in building modular systems, developing C# & .NET utilities, and containerizing services. Driven by automation, I craft clean code and maintain resilient self-hosted infrastructures.
+            I develop utility tools in C# and .NET, containerize services for my home server, and enjoy exploring automation and self-hosting.
           </p>
           
           <div class="hero-cta-group">
@@ -158,7 +158,7 @@
       <div class="section-header">
         <span class="section-subtitle">Showcase</span>
         <h2 class="section-title">Featured Projects</h2>
-        <p class="section-desc">Handpicked open-source tools designed to solve real-world problems in administration, cryptography, and automation.</p>
+        <p class="section-desc">Open-source tools I created to automate daily homelab tasks and server administration.</p>
       </div>
 
       <div class="featured-grid">
@@ -177,7 +177,7 @@
             
             <h3 class="project-title">SynapseAdmin.NET</h3>
             <p class="project-desc">
-              A modern, high-performance web administration interface for <strong>Matrix Synapse</strong> homeservers. Built from the ground up as a Blazor Server application running on <strong>.NET 10</strong>.
+              A web-based admin panel for Matrix Synapse homeservers, developed in C# using Blazor Server on .NET 10.
             </p>
             
             <ul class="project-features">
@@ -191,7 +191,7 @@
               </li>
               <li>
                 <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Blazor Server Power:</strong> Instant reactive updates, low memory footprint, and native C# server integration.</span>
+                <span><strong>Media Management:</strong> Inspect cached media files and purge old or large uploads to reclaim server storage.</span>
               </li>
             </ul>
 
@@ -321,21 +321,21 @@
             
             <h3 class="project-title">vaultwarden-export-rclone</h3>
             <p class="project-desc">
-              A robust utility designed to secure self-hosted password vaults. It automatically exports your <strong>Vaultwarden</strong> vault database and configuration, encrypts the output, and syncs it to offsite cloud storage endpoints using **rclone**.
+              A backup script and Docker container for self-hosted Vaultwarden instances. It automatically exports your vault using the built-in Vaultwarden export functionality and uses rclone to sync the backup files to offsite storage.
             </p>
             
             <ul class="project-features">
               <li>
                 <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Zero-Downtime Snapshots:</strong> Safely copy the SQLite database using transactional backups to avoid corruption.</span>
+                <span><strong>Vault Export:</strong> Automatically exports vault data using Vaultwarden's built-in export functionality.</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Multi-Destination Support:</strong> Syncs to Google Drive, AWS S3, OneDrive, WebDAV, or SFTP through rclone.</span>
+                <span><strong>Multi-Destination Support:</strong> Syncs backups to any configured local or remote storage endpoint via rclone.</span>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" width="16" height="16" class="check-icon" stroke="currentColor" stroke-width="2" fill="none"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span><strong>Automation Ready:</strong> Tailored for cron scheduling, includes retention cleanup, and emits diagnostic logs.</span>
+                <span><strong>Docker Container:</strong> Packages all dependencies inside a Docker image, ready for cron scheduling.</span>
               </li>
             </ul>
 
@@ -344,7 +344,7 @@
               <span>Vaultwarden</span>
               <span>Rclone</span>
               <span>Backup</span>
-              <span>SQLite</span>
+              <span>Docker</span>
             </div>
 
             <div class="project-links">
@@ -373,10 +373,10 @@
               <div class="mockup-body terminal-body" id="terminal-content">
                 <div class="terminal-line"><span class="t-prompt">benjamin@homelab:~$</span> <span class="t-command">./backup-vaultwarden.sh</span></div>
                 <div class="terminal-line t-log">[2026-06-08 12:00:01] [INFO] Starting vaultwarden backup sequence...</div>
-                <div class="terminal-line t-log">[2026-06-08 12:00:02] [INFO] Decrypting configuration and locating database...</div>
-                <div class="terminal-line t-log">[2026-06-08 12:00:03] [INFO] Creating SQLite backup vacuum snapshot...</div>
-                <div class="terminal-line t-log">[2026-06-08 12:00:04] [INFO] Syncing database to cloud storage via rclone...</div>
-                <div class="terminal-line t-success">[2026-06-08 12:00:06] [SUCCESS] Backup upload completed. (vaultwarden_20260608.tar.gz)</div>
+                <div class="terminal-line t-log">[2026-06-08 12:00:02] [INFO] Locating configuration and preparing export API request...</div>
+                <div class="terminal-line t-log">[2026-06-08 12:00:03] [INFO] Triggering Vaultwarden export API...</div>
+                <div class="terminal-line t-log">[2026-06-08 12:00:04] [INFO] Syncing backup files to storage endpoint via rclone...</div>
+                <div class="terminal-line t-success">[2026-06-08 12:00:06] [SUCCESS] Backup upload completed. (vaultwarden_backup_20260608.json)</div>
                 <div class="terminal-line t-log">[2026-06-08 12:00:06] [INFO] Cleaning up local temporary folder...</div>
                 <div class="terminal-line t-success">[2026-06-08 12:00:07] [SUCCESS] Backup task finished without errors.</div>
                 <div class="terminal-line"><span class="t-prompt">benjamin@homelab:~$</span> <span class="cursor-blink">█</span></div>
@@ -517,7 +517,7 @@
                 <div class="node-icon export-bg">VE</div>
                 <div class="node-details">
                   <h5>vaultwarden-export-rclone</h5>
-                  <p>Encrypted Cloud Sync Backup</p>
+                  <p>Automated Rclone Backup</p>
                 </div>
               </div>
             </div>
@@ -539,14 +539,14 @@
       <div class="section-header">
         <span class="section-subtitle">Get In Touch</span>
         <h2 class="section-title">Let's Connect</h2>
-        <p class="section-desc">Have a question about my tools, want to collaborate on C#/.NET projects, or just talk homelabs? Drop a message!</p>
+        <p class="section-desc">If you have questions about my projects, want to talk C#/.NET, or chat about homelabs, feel free to reach out!</p>
       </div>
 
       <div class="connect-container">
         <!-- Direct Contacts -->
         <div class="connect-info glass">
           <h3>Contact Channels</h3>
-          <p>Feel free to reach out via Matrix or check my active developments on GitHub.</p>
+          <p>Feel free to reach out on Matrix or check out my code on GitHub.</p>
           
           <div class="contact-links">
             <a href="https://matrix.to/#/@justbe:matrix.techlife.home64.de" target="_blank" rel="noopener noreferrer" class="contact-item hover-glow">
