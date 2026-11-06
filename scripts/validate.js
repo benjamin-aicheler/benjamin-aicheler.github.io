@@ -62,7 +62,8 @@ const openDivs = (htmlContent.match(/<div/g) || []).length;
 const closeDivs = (htmlContent.match(/<\/div>/g) || []).length;
 console.log(`Divs - Open: ${openDivs}, Close: ${closeDivs}`);
 if (openDivs !== closeDivs) {
-  console.warn(`WARNING: Div tags are unbalanced. Open: ${openDivs}, Close: ${closeDivs}`);
+  console.error(`FAIL: Div tags are unbalanced. Open: ${openDivs}, Close: ${closeDivs}`);
+  process.exit(1);
 }
 
 const openSections = (htmlContent.match(/<section/g) || []).length;

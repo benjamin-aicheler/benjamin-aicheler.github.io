@@ -50,7 +50,7 @@
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Outfit', sans-serif;
+  font-family: system-ui, sans-serif;
   color: var(--text-color);
   background-color: var(--bg-color);
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -934,7 +934,7 @@ section {
 .terminal-body {
   padding: 16px;
   height: 250px;
-  font-family: 'Fira Code', monospace;
+  font-family: ui-monospace, monospace;
   overflow-y: auto;
   color: #c9d1d9;
   display: flex;
@@ -1262,13 +1262,13 @@ section {
 .admin-bg { background-image: var(--glow-gradient); }
 .export-bg { background-color: #555555; }
 
-.node-details h5 {
+.node-details strong {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-color);
 }
 
-.node-details p {
+.node-details > span {
   font-size: 0.75rem;
   color: var(--text-secondary);
 }
@@ -1668,5 +1668,18 @@ section {
     text-align: center;
     padding: 8px 10px;
     font-size: 0.8rem;
+  }
+}
+
+/* Keyboard focus stays visible across every interactive control. */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.node-card { font-size: inherit; text-align: left; }
+.node-details strong, .node-details > span { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 }

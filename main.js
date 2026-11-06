@@ -17,8 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initTheme() {
   const themeToggle = document.getElementById('theme-toggle');
   
-  // Set default theme to dark if not saved
-  const savedTheme = localStorage.getItem('theme') || 'dark';
+  let savedTheme;
+  try { savedTheme = localStorage.getItem('theme'); } catch {}
+  if (!['dark', 'light'].includes(savedTheme)) {
+    savedTheme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
   document.documentElement.setAttribute('data-theme', savedTheme);
 
   themeToggle.addEventListener('click', () => {
@@ -26,7 +29,7 @@ function initTheme() {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
     document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    try { localStorage.setItem('theme', newTheme); } catch {}
   });
 }
 
@@ -68,6 +71,7 @@ function initNavigation() {
   mobileMenuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
     mobileMenuToggle.classList.toggle('active');
+    mobileMenuToggle.setAttribute('aria-expanded', String(navLinks.classList.contains('open')));
   });
 
   // Close menu when a link is clicked
@@ -75,6 +79,7 @@ function initNavigation() {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
       mobileMenuToggle.classList.remove('active');
+      mobileMenuToggle.setAttribute('aria-expanded', 'false');
     });
   });
 }
@@ -104,6 +109,15 @@ function initTerminalSimulator() {
     if (typingTimer) clearTimeout(typingTimer);
     terminalContent.innerHTML = '';
     
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      backupLines.filter(line => line.type !== 'command').forEach(line => {
+        const row = document.createElement('div');
+        row.textContent = line.text + (line.type === 'prompt' ? backupLines[1].text : '');
+        terminalContent.appendChild(row);
+      });
+      return;
+    }
+
     let lineIdx = 0;
     
     function printNextLine() {
@@ -220,7 +234,11 @@ function initHomelabDiagram() {
       if (!data) return;
       
       // Update active states in diagram
-      nodeCards.forEach(c => c.classList.remove('active'));
+      nodeCards.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      card.setAttribute('aria-pressed', 'true');
       card.classList.add('active');
       
       // Update details box with slide / fade transition
@@ -236,7 +254,7 @@ function initHomelabDiagram() {
           </div>
         `;
         infoDisplay.style.opacity = 1;
-      }, 200);
+      }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 200);
     });
   });
 }
@@ -279,46 +297,7 @@ async function initRepositoryExplorer() {
     }
   ];
 
-  let repositories = [];
-
-  // Try to load from GitHub API
-  try {
-    const response = await fetch('https://api.github.com/users/benjamin-aicheler/repos');
-    if (!response.ok) throw new Error('API request failed');
-    const data = await response.json();
-    
-    // Sort by updated or stars
-    data.sort((a, b) => b.stargazers_count - a.stargazers_count || new Date(b.updated_at) - new Date(a.updated_at));
-    
-    // Map to normalized structure, filtering out forks and the portfolio repository itself
-    const excludedNames = ['benjamin-aicheler.github.io'];
-    repositories = data
-      .filter(repo => !repo.fork && !excludedNames.includes(repo.name))
-      .map(repo => ({
-        name: repo.name,
-        description: repo.description || 'No description provided yet.',
-        language: repo.language,
-        stargazers_count: repo.stargazers_count,
-        html_url: repo.html_url
-      }));
-      
-    // Update stats on Hero
-    const totalRepos = data.length;
-    document.getElementById('stat-repos').textContent = totalRepos;
-    
-    // Try to get profile followers count
-    const profileResponse = await fetch('https://api.github.com/users/benjamin-aicheler');
-    if (profileResponse.ok) {
-      const profileData = await profileResponse.json();
-      document.getElementById('stat-followers').textContent = profileData.followers;
-      if (profileData.avatar_url) {
-        document.getElementById('github-avatar').src = profileData.avatar_url;
-      }
-    }
-  } catch (err) {
-    console.warn('Using local fallback repositories due to GitHub API error:', err);
-    repositories = fallbackRepos;
-  }
+  let repositories = fallbackRepos;
 
   // Render repositories function
   function renderRepos(searchQuery = '', activeLang = 'all') {
@@ -356,29 +335,31 @@ async function initRepositoryExplorer() {
       const card = document.createElement('div');
       card.className = 'repo-card glass';
       
-      const langClass = (repo.language || 'other').toLowerCase().replace('#', 'sharp');
-      
+      // Only static markup enters innerHTML; all remote values are text nodes.
       card.innerHTML = `
-        <div class="repo-card-header">
-          <span class="repo-name">${repo.name}</span>
-          <a href="${repo.html_url}" class="repo-link" target="_blank" rel="noopener noreferrer" aria-label="View repo on GitHub">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-          </a>
-        </div>
-        <p class="repo-card-desc">${repo.description}</p>
-        <div class="repo-card-footer">
-          <span class="repo-lang">
-            <span class="chip-color ${langClass}"></span>
-            ${repo.language || 'Other'}
-          </span>
-          <div class="repo-meta">
-            <span class="meta-item">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              ${repo.stargazers_count}
-            </span>
-          </div>
-        </div>
-      `;
+        <div class="repo-card-header"><span class="repo-name"></span></div>
+        <p class="repo-card-desc"></p>
+        <div class="repo-card-footer"><span class="repo-lang"></span>
+          <div class="repo-meta"><span class="meta-item"></span></div></div>`;
+      card.querySelector('.repo-name').textContent = repo.name;
+      card.querySelector('.repo-card-desc').textContent = repo.description;
+      const language = card.querySelector('.repo-lang');
+      const chip = document.createElement('span');
+      const langClass = ({'C#': 'csharp', 'Shell': 'shell'})[repo.language] || 'other';
+      chip.className = `chip-color ${langClass}`;
+      language.append(chip, document.createTextNode(repo.language || 'Other'));
+      card.querySelector('.meta-item').textContent = `★ ${repo.stargazers_count}`;
+      const url = safeGitHubUrl(repo.html_url);
+      if (url) {
+        const link = document.createElement('a');
+        link.href = url;
+        link.className = 'repo-link';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = '↗';
+        link.setAttribute('aria-label', `View ${repo.name} on GitHub`);
+        card.querySelector('.repo-card-header').appendChild(link);
+      }
       grid.appendChild(card);
     });
   }
@@ -401,7 +382,42 @@ async function initRepositoryExplorer() {
   });
 
   // Initial render
-  renderRepos();
+  function renderCurrent() {
+    const active = filterGroup.querySelector('.filter-btn.active');
+    renderRepos(searchInput.value, active ? active.getAttribute('data-lang') : 'all');
+  }
+  renderCurrent();
+
+  // Profile errors must never discard repository results.
+  const profileTask = fetchGitHubJson('https://api.github.com/users/benjamin-aicheler')
+    .then(profile => {
+      if (Number.isFinite(profile.followers)) {
+        document.getElementById('stat-followers').textContent = profile.followers;
+      }
+    }).catch(() => {});
+  try {
+    const data = [];
+    for (let page = 1; ; page++) {
+      const batch = await fetchGitHubJson(`https://api.github.com/users/benjamin-aicheler/repos?per_page=100&page=${page}`);
+      if (!Array.isArray(batch)) throw new Error('Invalid repository response');
+      data.push(...batch);
+      if (batch.length < 100) break;
+    }
+    data.sort((a, b) => b.stargazers_count - a.stargazers_count || new Date(b.updated_at) - new Date(a.updated_at));
+    repositories = data.filter(repo => !repo.fork && repo.name !== 'benjamin-aicheler.github.io' && typeof repo.name === 'string')
+      .map(repo => ({
+        name: repo.name,
+        description: typeof repo.description === 'string' ? repo.description : 'No description provided yet.',
+        language: typeof repo.language === 'string' ? repo.language : null,
+        stargazers_count: Number.isFinite(repo.stargazers_count) ? repo.stargazers_count : 0,
+        html_url: repo.html_url
+      }));
+    document.getElementById('stat-repos').textContent = data.length;
+    renderCurrent();
+  } catch (err) {
+    console.warn('Using local fallback repositories:', err);
+  }
+  await profileTask;
 }
 
 // --- INTERSECTION OBSERVER ANIMATION FALLBACK & UTILS ---
@@ -420,12 +436,12 @@ function initScrollEffects() {
   scrollToTop.addEventListener('click', () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
     });
   });
 
   // JS Fallback for Scroll Entry/Exit Animations
-  if (!CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && typeof IntersectionObserver !== 'undefined' && !CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
     console.log('Scroll-driven timelines unsupported; invoking IntersectionObserver fallback.');
     
     const observer = new IntersectionObserver((entries) => {
@@ -472,4 +488,32 @@ function initContactForm() {
       console.error('Failed to copy Matrix handle:', err);
     });
   });
+}
+
+// A deadline covers both the response and its body, even if a transport stalls.
+async function fetchGitHubJson(url, timeoutMs = 5000) {
+  const controller = new AbortController();
+  let timer;
+  try {
+    return await Promise.race([
+      (async () => {
+        const response = await fetch(url, { signal: controller.signal });
+        if (!response.ok) throw new Error('GitHub request failed');
+        return response.json();
+      })(),
+      new Promise((_, reject) => {
+        timer = setTimeout(() => {
+          controller.abort();
+          reject(new Error('GitHub request timed out'));
+        }, timeoutMs);
+      })
+    ]);
+  } finally { clearTimeout(timer); }
+}
+
+function safeGitHubUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && url.hostname === 'github.com' && !url.username && !url.password ? url.href : null;
+  } catch { return null; }
 }

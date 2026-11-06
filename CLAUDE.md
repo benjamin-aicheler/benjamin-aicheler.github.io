@@ -8,9 +8,9 @@ Guidelines and commands for development on the Benjamin Aicheler Portfolio Page.
     ```bash
     npx -y http-server ./
     ```
-*   **Validate Code Integrity**: Validates the HTML tags balancing, file structure, reference links, and Javascript syntax.
+*   **Validate Code Integrity**: Runs local file/reference checks, JavaScript parsing, HTML structural validation, and DOM regression tests (storage/network failures, safe metadata rendering, pagination, and controls). It does not check live external links or visual/assistive-technology behavior. Install development tools with `npm ci --ignore-scripts`.
     ```bash
-    node scripts/validate.js
+    npm test
     ```
 
 ## Technology Stack

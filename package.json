@@ -1,0 +1,11 @@
+{
+  "name": "benjamin-aicheler-portfolio",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/validate.js && html-validate index.html && node --test scripts/interactions.test.js"
+  },
+  "devDependencies": {
+    "html-validate": "^11.18.0",
+    "jsdom": "^26.0.0"
+  }
+}
